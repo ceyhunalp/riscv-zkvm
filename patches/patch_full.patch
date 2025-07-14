@@ -1,0 +1,20 @@
+--- lib.rs	2025-07-14 18:26:25
++++ lib-upd.rs	2025-07-14 18:27:45
+@@ -330,6 +330,7 @@
+ }
+ 
+ pub fn riscv(input_data: &Vec<u8>) -> u128 {
++    let max_count = 104829166;
+     let mut data = input_data.to_vec();
+     let bss_size = {
+         let xs = &data[data.len() - 4..];
+@@ -353,6 +354,9 @@
+             Status::Continue => {}
+             Status::Error => panic!(),
+             Status::Finished => break,
++        }
++        if count >= max_count {
++            break;
+         }
+     }
+     count
