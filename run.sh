@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set pipefail -eou
+set -eou pipefail
 
 mkdir -p riscv-zkvm/logs
 ./run-riscv-zkvm.sh -c
